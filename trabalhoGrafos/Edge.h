@@ -13,10 +13,6 @@ public:
 	int edge_dest_id;
 	int weight;
 
-	Edge() {
-
-	}
-
 	Edge(int d_id, int w) {
 		edge_dest_id = d_id;
 		weight = w;

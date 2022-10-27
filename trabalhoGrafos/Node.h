@@ -30,6 +30,7 @@ public:
 	}
 	void setID(int id) {
 		state_id = id;
+		state_name = id;
 	}
 	void setStateName(string s_name) {
 		state_name = s_name;
@@ -41,7 +42,7 @@ public:
 	void printEdgeList() {
 		cout << "[";
 		for (auto i : edgeList) {
-			cout << i.getEdgeDest_id() << "(" << i.getWeight() << ") --> ";
+			cout << i.getEdgeDest_id() << "(" << i.getWeight() << ") -- ";
 		}
 		cout << "]" << endl;
 

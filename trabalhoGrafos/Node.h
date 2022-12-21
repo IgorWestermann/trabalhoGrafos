@@ -14,39 +14,45 @@ public:
 
 	list<Edge> edgeList;
 
-	Node() {
+	Node()
+	{
 		state_id = 0;
 		state_name = "";
 	}
-	Node(int id, string s_name) {
+	Node(int id, string s_name)
+	{
 		state_id = id;
 		state_name = s_name;
 	}
-	int getStateID() {
+	int getStateID()
+	{
 		return state_id;
 	}
-	string getStateName() {
+	string getStateName()
+	{
 		return state_name;
 	}
-	void setID(int id) {
+	void setID(int id)
+	{
 		state_id = id;
 		state_name = id;
 	}
-	void setStateName(string s_name) {
+	void setStateName(string s_name)
+	{
 		state_name = s_name;
 	}
-	list<Edge> getEdgeList() {
+	list<Edge> getEdgeList()
+	{
 		return edgeList;
 	}
 
-	void printEdgeList() {
+	void printEdgeList()
+	{
 		cout << "[";
-		for (auto i : edgeList) {
+		for (auto i : edgeList)
+		{
 			cout << i.getEdgeDest_id() << "(" << i.getWeight() << ") -- ";
 		}
 		cout << "]" << endl;
-
 	}
-
 };
-

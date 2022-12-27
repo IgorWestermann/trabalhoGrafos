@@ -88,12 +88,13 @@ Node *Graph::getLastNode()
 */
 void Graph::insertNode(int id)
 {
-    //Verifica se existe pelo menos um No, se não, adiciona o primeiro
+    //Verifica se existe pelo menos um No,
     if(this->first_node != nullptr){
         Node* node = new Node(id);
         this->last_node -> setNextNode(node);
         this->last_node = node;
     }
+    //se não, adiciona o primeiro
     else{
         this->first_node = new Node(id);
         this->last_node = this->first_node;
@@ -102,18 +103,18 @@ void Graph::insertNode(int id)
 
 
 void Graph::insertEdge(int id, int target_id, float weight)
-{
+{   //Se os nos nao estiverem no Grafo
     if( !searchNode(id) )
         insertNode(id);
 
     if( !searchNode(target_id) )
         insertNode(target_id);
 
-    Node* nodeOrigem = getNode(id);
+    Node* nodeOrigem = getNode(id); 
     Node* nodeDestino = getNode(target_id);
 
     if(!getDirected()){
-        nodeOrigem->insertEdge(target_id,weight);
+        nodeOrigem->insertEdge(target_id,weight); //Conecta os nos direcionados
         nodeDestino->insertEdge(id,weight);
 
         nodeOrigem->incrementInDegree(); //aumenta o grau de entrada
@@ -127,7 +128,6 @@ void Graph::insertEdge(int id, int target_id, float weight)
     }
 
     this->number_edges++;
-
     
 }
 
@@ -137,7 +137,6 @@ void Graph::removeNode(int id){
 
 bool Graph::searchNode(int id)
 {
-    //Procura o No no Grafo
     if(this->first_node != nullptr){
         for(Node* aux = first_node; aux != nullptr; aux = aux->getNextNode())
             if(aux->getId() == id)
@@ -150,7 +149,7 @@ bool Graph::searchNode(int id)
 
 Node *Graph::getNode(int id)
 {
-    //Retorna o No com id, caso contrario retorna null
+    //Retorna No com id, caso contrario retorna null
     if(this->first_node != nullptr){
         for(Node* aux = first_node; aux != nullptr; aux = aux->getNextNode())
             if(aux->getId() == id)
